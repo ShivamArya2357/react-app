@@ -1,0 +1,15 @@
+FROM node:16.4.2
+
+WORKDIR /app
+
+COPY ./package.json .
+
+RUN npx npm-check-updates
+
+RUN npx npm-check-updates -u
+
+RUN npm install
+
+COPY . .
+
+CMD ["npm", "run", "start"]
